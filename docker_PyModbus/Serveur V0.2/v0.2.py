@@ -24,7 +24,7 @@ from pymodbus.transaction import ModbusRtuFramer
 # configure the service logging
 #---------------------------------------------------------------------------# 
 import logging
-logging.basicConfig(filename='log_synchro_srv.log')
+logging.basicConfig(format='%(asctime)s machinedetest  %(name)s %(levelname)s %(message)s', filename='logv02.log')
 #logging.FileHandler('log_ser.log')
 log = logging.getLogger()
 log.setLevel(logging.DEBUG)
@@ -106,7 +106,7 @@ identity.MajorMinorRevision = '1.0'
 # run the server you want
 #---------------------------------------------------------------------------# 
 # Tcp:
-StartTcpServer(context, identity=identity, address=("10.0.2.15", 5020))
+StartTcpServer(context, identity=identity, address=("localhost", 5020))
 
 # Udp:
 #StartUdpServer(context, identity=identity, address=("localhost", 502))
@@ -116,3 +116,4 @@ StartTcpServer(context, identity=identity, address=("10.0.2.15", 5020))
 
 # RTU:
 # StartSerialServer(context, framer=ModbusRtuFramer, identity=identity, port='/dev/ptyp0', timeout=.005, baudrate=9600)
+
