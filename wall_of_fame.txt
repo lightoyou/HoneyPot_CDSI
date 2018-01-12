@@ -1,0 +1,18 @@
+
+TOP PRODUCTS 
+===========================
+
+(1) - BMX P34 2020   566
+(2) - BMX NOE 0100   230
+(3) - TM221CE40T     174
+(4) - SAS TSXETY4103 155
+(5) - TM221CE40R     57
+
+ 
+
+TYPICAL OUTPUT 
+==========================
+
+Unit ID: 0
+-- Slave ID Data:     @ X     	(0808ffe14000580000000000)
+-- Device Identification: Schneider Electric A9MEM3255 V1.0 
