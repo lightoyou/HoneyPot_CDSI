@@ -106,7 +106,7 @@ identity.MajorMinorRevision = '1.0'
 # run the server you want
 #---------------------------------------------------------------------------# 
 # Tcp:
-StartTcpServer(context, identity=identity, address=("localhost", 5020))
+StartTcpServer(context, identity=identity, address=("localhost", 502))
 
 # Udp:
 #StartUdpServer(context, identity=identity, address=("localhost", 502))

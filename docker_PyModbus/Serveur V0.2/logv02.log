@@ -1,0 +1,99 @@
+2018-01-12 14:19:28,145 machinedetest  pymodbus.server.sync DEBUG Started thread to serve client at ('127.0.0.1', 40323)
+2018-01-12 14:19:28,146 machinedetest  pymodbus.server.sync DEBUG Client Connected [127.0.0.1:40323]
+2018-01-12 14:19:28,146 machinedetest  pymodbus.server.sync DEBUG 0x0 0x1 0x0 0x0 0x0 0x6 0x1 0x1 0x0 0x1 0x0 0x1
+2018-01-12 14:19:28,146 machinedetest  pymodbus.transaction DEBUG 0x0 0x1 0x0 0x0 0x0 0x6 0x1 0x1 0x0 0x1 0x0 0x1
+2018-01-12 14:19:28,146 machinedetest  pymodbus.factory DEBUG Factory Request[1]
+2018-01-12 14:19:28,147 machinedetest  pymodbus.datastore.context DEBUG validate[1] 2:1
+2018-01-12 14:19:28,147 machinedetest  pymodbus.datastore.context DEBUG getValues[1] 2:1
+2018-01-12 14:19:28,147 machinedetest  pymodbus.server.sync DEBUG send: 00010000000401010101
+2018-01-12 14:19:28,148 machinedetest  pymodbus.server.sync DEBUG 0x0 0x2 0x0 0x0 0x0 0x6 0x1 0x5 0x0 0x0 0xff 0x0
+2018-01-12 14:19:28,148 machinedetest  pymodbus.transaction DEBUG 0x0 0x2 0x0 0x0 0x0 0x6 0x1 0x5 0x0 0x0 0xff 0x0
+2018-01-12 14:19:28,149 machinedetest  pymodbus.factory DEBUG Factory Request[5]
+2018-01-12 14:19:28,149 machinedetest  pymodbus.datastore.context DEBUG validate[5] 1:1
+2018-01-12 14:19:28,149 machinedetest  pymodbus.datastore.context DEBUG setValues[5] 1:1
+2018-01-12 14:19:28,149 machinedetest  pymodbus.datastore.context DEBUG getValues[5] 1:1
+2018-01-12 14:19:28,149 machinedetest  pymodbus.server.sync DEBUG send: 00020000000601050000ff00
+2018-01-12 14:19:28,150 machinedetest  pymodbus.server.sync DEBUG 0x0 0x3 0x0 0x0 0x0 0x6 0x1 0x1 0x0 0x0 0x0 0x1
+2018-01-12 14:19:28,150 machinedetest  pymodbus.transaction DEBUG 0x0 0x3 0x0 0x0 0x0 0x6 0x1 0x1 0x0 0x0 0x0 0x1
+2018-01-12 14:19:28,151 machinedetest  pymodbus.factory DEBUG Factory Request[1]
+2018-01-12 14:19:28,151 machinedetest  pymodbus.datastore.context DEBUG validate[1] 1:1
+2018-01-12 14:19:28,151 machinedetest  pymodbus.datastore.context DEBUG getValues[1] 1:1
+2018-01-12 14:19:28,151 machinedetest  pymodbus.server.sync DEBUG send: 00030000000401010101
+2018-01-12 14:19:28,152 machinedetest  pymodbus.server.sync DEBUG 0x0 0x4 0x0 0x0 0x0 0x8 0x1 0xf 0x0 0x1 0x0 0x8 0x1 0xff
+2018-01-12 14:19:28,152 machinedetest  pymodbus.transaction DEBUG 0x0 0x4 0x0 0x0 0x0 0x8 0x1 0xf 0x0 0x1 0x0 0x8 0x1 0xff
+2018-01-12 14:19:28,152 machinedetest  pymodbus.factory DEBUG Factory Request[15]
+2018-01-12 14:19:28,153 machinedetest  pymodbus.datastore.context DEBUG validate[15] 2:8
+2018-01-12 14:19:28,153 machinedetest  pymodbus.datastore.context DEBUG setValues[15] 2:8
+2018-01-12 14:19:28,153 machinedetest  pymodbus.server.sync DEBUG send: 000400000006010f00010008
+2018-01-12 14:19:28,154 machinedetest  pymodbus.server.sync DEBUG 0x0 0x5 0x0 0x0 0x0 0x6 0x1 0x1 0x0 0x1 0x0 0x15
+2018-01-12 14:19:28,154 machinedetest  pymodbus.transaction DEBUG 0x0 0x5 0x0 0x0 0x0 0x6 0x1 0x1 0x0 0x1 0x0 0x15
+2018-01-12 14:19:28,154 machinedetest  pymodbus.factory DEBUG Factory Request[1]
+2018-01-12 14:19:28,154 machinedetest  pymodbus.datastore.context DEBUG validate[1] 2:21
+2018-01-12 14:19:28,154 machinedetest  pymodbus.datastore.context DEBUG getValues[1] 2:21
+2018-01-12 14:19:28,155 machinedetest  pymodbus.server.sync DEBUG send: 000500000006010103ffff1f
+2018-01-12 14:19:28,156 machinedetest  pymodbus.server.sync DEBUG 0x0 0x6 0x0 0x0 0x0 0x8 0x1 0xf 0x0 0x1 0x0 0x8 0x1 0x0
+2018-01-12 14:19:28,157 machinedetest  pymodbus.transaction DEBUG 0x0 0x6 0x0 0x0 0x0 0x8 0x1 0xf 0x0 0x1 0x0 0x8 0x1 0x0
+2018-01-12 14:19:28,157 machinedetest  pymodbus.factory DEBUG Factory Request[15]
+2018-01-12 14:19:28,157 machinedetest  pymodbus.datastore.context DEBUG validate[15] 2:8
+2018-01-12 14:19:28,157 machinedetest  pymodbus.datastore.context DEBUG setValues[15] 2:8
+2018-01-12 14:19:28,157 machinedetest  pymodbus.server.sync DEBUG send: 000600000006010f00010008
+2018-01-12 14:19:28,158 machinedetest  pymodbus.server.sync DEBUG 0x0 0x7 0x0 0x0 0x0 0x6 0x1 0x1 0x0 0x1 0x0 0x8
+2018-01-12 14:19:28,158 machinedetest  pymodbus.transaction DEBUG 0x0 0x7 0x0 0x0 0x0 0x6 0x1 0x1 0x0 0x1 0x0 0x8
+2018-01-12 14:19:28,159 machinedetest  pymodbus.factory DEBUG Factory Request[1]
+2018-01-12 14:19:28,159 machinedetest  pymodbus.datastore.context DEBUG validate[1] 2:8
+2018-01-12 14:19:28,159 machinedetest  pymodbus.datastore.context DEBUG getValues[1] 2:8
+2018-01-12 14:19:28,159 machinedetest  pymodbus.server.sync DEBUG send: 00070000000401010100
+2018-01-12 14:19:28,160 machinedetest  pymodbus.server.sync DEBUG 0x0 0x8 0x0 0x0 0x0 0x6 0x1 0x2 0x0 0x0 0x0 0x8
+2018-01-12 14:19:28,160 machinedetest  pymodbus.transaction DEBUG 0x0 0x8 0x0 0x0 0x0 0x6 0x1 0x2 0x0 0x0 0x0 0x8
+2018-01-12 14:19:28,160 machinedetest  pymodbus.factory DEBUG Factory Request[2]
+2018-01-12 14:19:28,160 machinedetest  pymodbus.datastore.context DEBUG validate[2] 1:8
+2018-01-12 14:19:28,161 machinedetest  pymodbus.datastore.context DEBUG getValues[2] 1:8
+2018-01-12 14:19:28,161 machinedetest  pymodbus.server.sync DEBUG send: 000800000004010201ff
+2018-01-12 14:19:28,162 machinedetest  pymodbus.server.sync DEBUG 0x0 0x9 0x0 0x0 0x0 0x6 0x1 0x6 0x0 0x1 0x0 0xa
+2018-01-12 14:19:28,162 machinedetest  pymodbus.transaction DEBUG 0x0 0x9 0x0 0x0 0x0 0x6 0x1 0x6 0x0 0x1 0x0 0xa
+2018-01-12 14:19:28,162 machinedetest  pymodbus.factory DEBUG Factory Request[6]
+2018-01-12 14:19:28,163 machinedetest  pymodbus.datastore.context DEBUG validate[6] 2:1
+2018-01-12 14:19:28,163 machinedetest  pymodbus.datastore.context DEBUG setValues[6] 2:1
+2018-01-12 14:19:28,163 machinedetest  pymodbus.datastore.context DEBUG getValues[6] 2:1
+2018-01-12 14:19:28,163 machinedetest  pymodbus.server.sync DEBUG send: 00090000000601060001000a
+2018-01-12 14:19:28,164 machinedetest  pymodbus.server.sync DEBUG 0x0 0xa 0x0 0x0 0x0 0x6 0x1 0x3 0x0 0x1 0x0 0x1
+2018-01-12 14:19:28,164 machinedetest  pymodbus.transaction DEBUG 0x0 0xa 0x0 0x0 0x0 0x6 0x1 0x3 0x0 0x1 0x0 0x1
+2018-01-12 14:19:28,164 machinedetest  pymodbus.factory DEBUG Factory Request[3]
+2018-01-12 14:19:28,164 machinedetest  pymodbus.datastore.context DEBUG validate[3] 2:1
+2018-01-12 14:19:28,164 machinedetest  pymodbus.datastore.context DEBUG getValues[3] 2:1
+2018-01-12 14:19:28,164 machinedetest  pymodbus.server.sync DEBUG send: 000a00000005010302000a
+2018-01-12 14:19:28,165 machinedetest  pymodbus.server.sync DEBUG 0x0 0xb 0x0 0x0 0x0 0x17 0x1 0x10 0x0 0x1 0x0 0x8 0x10 0x0 0xa 0x0 0xa 0x0 0xa 0x0 0xa 0x0 0xa 0x0 0xa 0x0 0xa 0x0 0xa
+2018-01-12 14:19:28,165 machinedetest  pymodbus.transaction DEBUG 0x0 0xb 0x0 0x0 0x0 0x17 0x1 0x10 0x0 0x1 0x0 0x8 0x10 0x0 0xa 0x0 0xa 0x0 0xa 0x0 0xa 0x0 0xa 0x0 0xa 0x0 0xa 0x0 0xa
+2018-01-12 14:19:28,165 machinedetest  pymodbus.factory DEBUG Factory Request[16]
+2018-01-12 14:19:28,165 machinedetest  pymodbus.datastore.context DEBUG validate[16] 2:8
+2018-01-12 14:19:28,166 machinedetest  pymodbus.datastore.context DEBUG setValues[16] 2:8
+2018-01-12 14:19:28,166 machinedetest  pymodbus.server.sync DEBUG send: 000b00000006011000010008
+2018-01-12 14:19:28,166 machinedetest  pymodbus.server.sync DEBUG 0x0 0xc 0x0 0x0 0x0 0x6 0x1 0x3 0x0 0x1 0x0 0x8
+2018-01-12 14:19:28,167 machinedetest  pymodbus.transaction DEBUG 0x0 0xc 0x0 0x0 0x0 0x6 0x1 0x3 0x0 0x1 0x0 0x8
+2018-01-12 14:19:28,167 machinedetest  pymodbus.factory DEBUG Factory Request[3]
+2018-01-12 14:19:28,167 machinedetest  pymodbus.datastore.context DEBUG validate[3] 2:8
+2018-01-12 14:19:28,167 machinedetest  pymodbus.datastore.context DEBUG getValues[3] 2:8
+2018-01-12 14:19:28,167 machinedetest  pymodbus.server.sync DEBUG send: 000c00000013010310000a000a000a000a000a000a000a000a
+2018-01-12 14:19:28,168 machinedetest  pymodbus.server.sync DEBUG 0x0 0xd 0x0 0x0 0x0 0x6 0x1 0x4 0x0 0x1 0x0 0x8
+2018-01-12 14:19:28,168 machinedetest  pymodbus.transaction DEBUG 0x0 0xd 0x0 0x0 0x0 0x6 0x1 0x4 0x0 0x1 0x0 0x8
+2018-01-12 14:19:28,168 machinedetest  pymodbus.factory DEBUG Factory Request[4]
+2018-01-12 14:19:28,169 machinedetest  pymodbus.datastore.context DEBUG validate[4] 2:8
+2018-01-12 14:19:28,169 machinedetest  pymodbus.datastore.context DEBUG getValues[4] 2:8
+2018-01-12 14:19:28,169 machinedetest  pymodbus.server.sync DEBUG send: 000d0000001301041000110011001100110011001100110011
+2018-01-12 14:19:28,170 machinedetest  pymodbus.server.sync DEBUG 0x0 0xe 0x0 0x0 0x0 0x1b 0x1 0x17 0x0 0x1 0x0 0x8 0x0 0x1 0x0 0x8 0x10 0x0 0x14 0x0 0x14 0x0 0x14 0x0 0x14 0x0 0x14 0x0 0x14 0x0 0x14 0x0 0x14
+2018-01-12 14:19:28,170 machinedetest  pymodbus.transaction DEBUG 0x0 0xe 0x0 0x0 0x0 0x1b 0x1 0x17 0x0 0x1 0x0 0x8 0x0 0x1 0x0 0x8 0x10 0x0 0x14 0x0 0x14 0x0 0x14 0x0 0x14 0x0 0x14 0x0 0x14 0x0 0x14 0x0 0x14
+2018-01-12 14:19:28,170 machinedetest  pymodbus.factory DEBUG Factory Request[23]
+2018-01-12 14:19:28,170 machinedetest  pymodbus.datastore.context DEBUG validate[23] 2:8
+2018-01-12 14:19:28,170 machinedetest  pymodbus.datastore.context DEBUG validate[23] 2:8
+2018-01-12 14:19:28,171 machinedetest  pymodbus.datastore.context DEBUG setValues[23] 2:8
+2018-01-12 14:19:28,171 machinedetest  pymodbus.datastore.context DEBUG getValues[23] 2:8
+2018-01-12 14:19:28,171 machinedetest  pymodbus.server.sync DEBUG send: 000e0000001301171000140014001400140014001400140014
+2018-01-12 14:19:28,173 machinedetest  pymodbus.server.sync DEBUG 0x0 0xf 0x0 0x0 0x0 0x6 0x1 0x3 0x0 0x1 0x0 0x8
+2018-01-12 14:19:28,173 machinedetest  pymodbus.transaction DEBUG 0x0 0xf 0x0 0x0 0x0 0x6 0x1 0x3 0x0 0x1 0x0 0x8
+2018-01-12 14:19:28,173 machinedetest  pymodbus.factory DEBUG Factory Request[3]
+2018-01-12 14:19:28,173 machinedetest  pymodbus.datastore.context DEBUG validate[3] 2:8
+2018-01-12 14:19:28,173 machinedetest  pymodbus.datastore.context DEBUG getValues[3] 2:8
+2018-01-12 14:19:28,174 machinedetest  pymodbus.server.sync DEBUG send: 000f0000001301031000140014001400140014001400140014
+2018-01-12 14:19:28,174 machinedetest  pymodbus.server.sync DEBUG 
+2018-01-12 14:19:28,174 machinedetest  pymodbus.transaction DEBUG 
+2018-01-12 14:19:28,174 machinedetest  pymodbus.server.sync DEBUG Client Disconnected [127.0.0.1:40323]
