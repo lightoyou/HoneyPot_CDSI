@@ -55,7 +55,7 @@ log.setLevel(logging.DEBUG)
 #
 #    client = ModbusClient('localhost', retries=3, retry_on_empty=True)
 #---------------------------------------------------------------------------# 
-client = ModbusClient('honeycdsi_pymodbus', port=502)
+client = ModbusClient('localhost', port=502)
 #client = ModbusClient(method='ascii', port='/dev/pts/2', timeout=1)
 # client = ModbusClient(method='rtu', port='/dev/ttyp0', timeout=1)
 client.connect()

@@ -97,3 +97,5 @@
 2018-01-12 14:19:28,174 machinedetest  pymodbus.server.sync DEBUG 
 2018-01-12 14:19:28,174 machinedetest  pymodbus.transaction DEBUG 
 2018-01-12 14:19:28,174 machinedetest  pymodbus.server.sync DEBUG Client Disconnected [127.0.0.1:40323]
+2018-01-13 21:42:23,409 machinedetest  pymodbus.server.sync DEBUG Modbus server stopped
+2018-01-13 21:42:29,112 machinedetest  pymodbus.server.sync DEBUG Modbus server stopped
