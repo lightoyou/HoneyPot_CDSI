@@ -1,6 +1,29 @@
+# Honey_CDSI
+----------------------------------
+# Introduction
+Ce projet est un HoneyPot dédié aux Industrial Control Système- ICS.
+L'Objectif est de fournir un moyen de collecter des données permettant de comprendre les motivations, les méthodes utilisé par des adversaires essayant d'attaquer ce type de système industriel et particulièrement le protocole ModBus.
+
+
 # Infrastructure
 ![schéma](/doc/archi.png)
+
 ----------------------------------
+### Explications
+Le projet se base sur la Stack ELK.
+
+
+# Installation facile avec Docker
+## Depuis les sources
+1. Installer Docker
+2. Cloner ce répository via
+```git clone https://github.com/lightoyou/HoneyPot_CDSI.git```
+
+
+
+
+
+
 # Docker ELK stack
 
 [![Join the chat at https://gitter.im/deviantony/docker-elk](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/deviantony/docker-elk?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
