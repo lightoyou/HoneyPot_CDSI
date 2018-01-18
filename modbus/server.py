@@ -145,9 +145,9 @@ dico = {
 }
 
 print "Liste des signature : "
-affichagesignature(dico)
-i = demandeobligatoire("Quelle signature voulez vous utiliser ?","int")
- 
+#-affichagesignature(dico)
+#i = demandeobligatoire("Quelle signature voulez vous utiliser ?","int")
+i = 0
 
 identity = ModbusDeviceIdentification()
 identity.VendorName  = dico[i]['VendorName']
