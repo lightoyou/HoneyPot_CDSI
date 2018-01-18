@@ -1,4 +1,4 @@
-version: '2.2'
+version: '2.0'
 
 
 services:
@@ -9,7 +9,8 @@ services:
     volumes:
       - /data/modbus/log:/var/log/modbus
     networks:
-      - modbus_local
+      - frontend
+      - backend
 
   elasticsearch:
     build:
@@ -17,13 +18,13 @@ services:
     volumes:
       - ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
       - /data:/data
-    ports:
-      - "9200:9200"
-      - "9300:9300"
+    #ports:
+      #- "9200:9200"
+      #- "9300:9300"
     environment:
       ES_JAVA_OPTS: "-Xmx256m -Xms256m"
     networks:
-      - elk
+      - backend
 
   logstash:
     build:
@@ -33,12 +34,12 @@ services:
       - ./logstash/pipeline:/usr/share/logstash/pipeline:ro
       - ./data:/data
     #  - ./var/log:data/host/log
-    ports:
-      - "5000:5000"
+    #ports:
+      #- "5000:5000"
     environment:
       LS_JAVA_OPTS: "-Xmx256m -Xms256m"
     networks:
-      - elk
+      - backend
     depends_on:
       - elasticsearch
 
@@ -47,14 +48,13 @@ services:
       context: kibana/
     volumes:
       - ./kibana/config/:/usr/share/kibana/config:ro
-    ports:
-      - "5601:5601"
+    #ports:
+      #- "5601:5601"
     networks:
-      - elk
+      - backend
     depends_on:
       - elasticsearch
 
 networks:
-  modbus_local:
-  elk:
-      driver: bridge
+  frontend:
+  backend:
