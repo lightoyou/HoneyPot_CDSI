@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
 '''
 Pymodbus Synchronous Server Example
 --------------------------------------------------------------------------
@@ -24,10 +25,48 @@ from pymodbus.transaction import ModbusRtuFramer
 # configure the service logging
 #---------------------------------------------------------------------------# 
 import logging
-logging.basicConfig(format='%(asctime)s machinedetest  %(name)s %(levelname)s %(message)s', filename='logv02.log')
+logging.basicConfig(format='%(asctime)s machinedetest  %(name)s %(levelname)s %(message)s', filename='logv03.log')
 #logging.FileHandler('log_ser.log')
 log = logging.getLogger()
 log.setLevel(logging.DEBUG)
+
+
+def demandeobligatoire(question,typedem="text"):
+    """
+        Fonction de demande d'input obligatoire
+        Oblige l'utilisater à entrer une réponse différende de '' et qui correspond au type demandé
+        Elle prend en argument le texte pour le input (question)
+        le type de la var à renvoyer 
+        Types : (typedem)
+            text -> string
+            int ->  Entier
+        + Gestion des erreur
+
+        Renvoie la variable demandée (tempon)
+    """
+    if typedem == "int":
+        while 1:
+            try:
+                tempon = int(input(question))
+                if tempon != '': break
+            except:
+                print("Veuillez entrer un nombre : ")
+    else:
+        while 1:
+            tempon = input(question)
+            if tempon != '': break
+    return tempon
+
+def affichagesignature(dico):
+    for i in range(len(dico)): 
+        print "Signature          = " , i
+        print "VendorName         = ", dico[i]['VendorName']
+        print "ProductCode        = ", dico[i]['ProductCode']
+        print "VendorUrl          = ", dico[i]['VendorUrl']
+        print "ProductName        =", dico[i]['ProductName']
+        print "ModelName          =", dico[i]['ModelName']
+        print "MajorMinorRevision = ", dico[i]['MajorMinorRevision']
+        print "\n"
 
 #---------------------------------------------------------------------------# 
 # initialize your data store
@@ -94,13 +133,29 @@ context = ModbusServerContext(slaves=store, single=True)
 #---------------------------------------------------------------------------# 
 # If you don't set this or any fields, they are defaulted to empty strings.
 #---------------------------------------------------------------------------# 
+
+dico = { 
+0:{'VendorName':"Schneider Electric", 'ProductCode':"A9MEM3255", 'VendorUrl':"", 'ProductName':"", 'ModelName':"Model", 'MajorMinorRevision':"1.0"},
+
+1:{'VendorName':"Schneider Electric", 'ProductCode':"BMXNOE01005", 'VendorUrl':"", 'ProductName':"", 'ModelName':"Model", 'MajorMinorRevision':"1.0"},
+
+2:{'VendorName':"Schneider Electric", 'ProductCode':"TM221CE40T", 'VendorUrl':"", 'ProductName':"", 'ModelName':"Model", 'MajorMinorRevision':"1.0"},
+
+3:{'VendorName':"Schneider Electric", 'ProductCode':"SAS TSXETY4103", 'VendorUrl':"", 'ProductName':"", 'ModelName':"Model", 'MajorMinorRevision':"1.0"},
+}
+
+print "Liste des signature : "
+affichagesignature(dico)
+i = demandeobligatoire("Quelle signature voulez vous utiliser ?","int")
+ 
+
 identity = ModbusDeviceIdentification()
-identity.VendorName  = 'Pymodbus'
-identity.ProductCode = 'PM'
-identity.VendorUrl   = 'http://github.com/riptideio/pymodbus/'
-identity.ProductName = 'Pymodbus Server'
-identity.ModelName   = 'Pymodbus Server'
-identity.MajorMinorRevision = '1.0'
+identity.VendorName  = dico[i]['VendorName']
+identity.ProductCode = dico[i]['ProductCode']
+identity.VendorUrl   = dico[i]['VendorUrl']
+identity.ProductName = dico[i]['ProductName']
+identity.ModelName   = dico[i]['ModelName']
+identity.MajorMinorRevision = dico[i]['MajorMinorRevision']
 
 #---------------------------------------------------------------------------#
 # run the server you want
