@@ -3,6 +3,7 @@ version: '2.0'
 
 services:
   pymodbus:
+    container_name: modbus
     build: ./modbus
     ports:
       - "502:502"
@@ -11,49 +12,48 @@ services:
     networks:
       - frontend
       - backend
+    restart: always
 
   elasticsearch:
+    container_name: elasticsearch
     build:
       context: elasticsearch/
     volumes:
       - ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
-      - /data:/data
-    #ports:
-      #- "9200:9200"
-      #- "9300:9300"
+      - /data/elasticsearch:/data
     environment:
-      ES_JAVA_OPTS: "-Xmx256m -Xms256m"
+      ES_JAVA_OPTS: "-Xmx2g -Xms2g"
     networks:
       - backend
+    restart: always
 
   logstash:
+    container_name: logstash
     build:
       context: logstash/
     volumes:
       - ./logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml:ro
       - ./logstash/pipeline:/usr/share/logstash/pipeline:ro
       - ./data:/data
-    #  - ./var/log:data/host/log
-    #ports:
-      #- "5000:5000"
     environment:
-      LS_JAVA_OPTS: "-Xmx256m -Xms256m"
+      LS_JAVA_OPTS: "-Xmx2g -Xms2g"
     networks:
       - backend
     depends_on:
       - elasticsearch
+    restart: always
 
   kibana:
+    container_name: kibana
     build:
       context: kibana/
     volumes:
       - ./kibana/config/:/usr/share/kibana/config:ro
-    #ports:
-      #- "5601:5601"
     networks:
       - backend
     depends_on:
       - elasticsearch
+    restart: always
 
 networks:
   frontend:
