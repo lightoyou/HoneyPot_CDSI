@@ -25,6 +25,7 @@ from pymodbus.transaction import ModbusRtuFramer
 # configure the service logging
 #---------------------------------------------------------------------------# 
 import logging
+import time
 logging.basicConfig(format='%(asctime)s machinedetest  %(name)s %(levelname)s %(message)s', filename='/var/log/modbus/modbus.log')
 #logging.FileHandler('log_ser.log')
 log = logging.getLogger()
@@ -189,7 +190,9 @@ identity.MajorMinorRevision = dico[i]['MajorMinorRevision']
 # run the server you want
 #---------------------------------------------------------------------------# 
 # Tcp:
+log.debug("[ %s ] TcpServer START", time.asctime())
 StartTcpServer(context, identity=identity, address=("localhost", 502))
+log.debug("[ %s ] TcpServer STOP", time.asctime())
 
 # Udp:
 #StartUdpServer(context, identity=identity, address=("localhost", 502))
