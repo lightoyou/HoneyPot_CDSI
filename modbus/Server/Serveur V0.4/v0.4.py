@@ -25,7 +25,7 @@ from pymodbus.transaction import ModbusRtuFramer
 # configure the service logging
 #---------------------------------------------------------------------------# 
 import logging
-logging.basicConfig(format='%(asctime)s machinedetest  %(name)s %(levelname)s %(message)s', filename='/data/modbus/log/modbus.log')
+logging.basicConfig(format='%(asctime)s machinedetest  %(name)s %(levelname)s %(message)s', filename='/var/log/modbus/modbus.log')
 #logging.FileHandler('log_ser.log')
 log = logging.getLogger()
 log.setLevel(logging.DEBUG)
