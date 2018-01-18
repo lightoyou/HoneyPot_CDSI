@@ -59,14 +59,14 @@ def demandeobligatoire(question,typedem="text"):
 
 def affichagesignature(dico):
     for i in range(len(dico)): 
-        print "Signature          = " , i
-        print "VendorName         = ", dico[i]['VendorName']
-        print "ProductCode        = ", dico[i]['ProductCode']
-        print "VendorUrl          = ", dico[i]['VendorUrl']
-        print "ProductName        =", dico[i]['ProductName']
-        print "ModelName          =", dico[i]['ModelName']
-        print "MajorMinorRevision = ", dico[i]['MajorMinorRevision']
-        print "\n"
+        print ("Signature          = " + i)
+        print ("VendorName         = " + dico[i]['VendorName'])
+        print ("ProductCode        = " + dico[i]['ProductCode'])
+        print ("VendorUrl          = " + dico[i]['VendorUrl'])
+        print ("ProductName        =" + dico[i]['ProductName'])
+        print ("ModelName          =" + dico[i]['ModelName'])
+        print ("MajorMinorRevision = " + dico[i]['MajorMinorRevision'])
+        print ("\n")
 
 #---------------------------------------------------------------------------# 
 # initialize your data store
@@ -144,7 +144,7 @@ dico = {
 3:{'VendorName':"Schneider Electric", 'ProductCode':"SAS TSXETY4103", 'VendorUrl':"", 'ProductName':"", 'ModelName':"Model", 'MajorMinorRevision':"1.0"},
 }
 
-print "Liste des signature : "
+#print("Liste des signature : ")
 #-affichagesignature(dico)
 #i = demandeobligatoire("Quelle signature voulez vous utiliser ?","int")
 i = 0
