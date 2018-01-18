@@ -135,13 +135,41 @@ context = ModbusServerContext(slaves=store, single=True)
 #---------------------------------------------------------------------------# 
 
 dico = { 
-0:{'VendorName':"Schneider Electric", 'ProductCode':"A9MEM3255", 'VendorUrl':"", 'ProductName':"", 'ModelName':"Model", 'MajorMinorRevision':"1.0"},
+    0 : 
+        {'VendorName':"Schneider Electric", 
+         'ProductCode':"A9MEM3255", 
+         'VendorUrl':"", 
+         'ProductName':"", 
+         'ModelName':"Model", 
+         'MajorMinorRevision':"1.0"
+        },
 
-1:{'VendorName':"Schneider Electric", 'ProductCode':"BMXNOE01005", 'VendorUrl':"", 'ProductName':"", 'ModelName':"Model", 'MajorMinorRevision':"1.0"},
+    1 : 
+        {'VendorName':"Schneider Electric", 
+         'ProductCode':"BMXNOE01005", 
+         'VendorUrl':"", 
+         'ProductName':"", 
+         'ModelName':"Model", 
+         'MajorMinorRevision':"1.0"
+        },
 
-2:{'VendorName':"Schneider Electric", 'ProductCode':"TM221CE40T", 'VendorUrl':"", 'ProductName':"", 'ModelName':"Model", 'MajorMinorRevision':"1.0"},
+    2 : 
+        {'VendorName':"Schneider Electric", 
+         'ProductCode':"TM221CE40T", 
+         'VendorUrl':"", 
+         'ProductName':"", 
+         'ModelName':"Model", 
+         'MajorMinorRevision':"1.0"
+        },
 
-3:{'VendorName':"Schneider Electric", 'ProductCode':"SAS TSXETY4103", 'VendorUrl':"", 'ProductName':"", 'ModelName':"Model", 'MajorMinorRevision':"1.0"},
+    3 : 
+        {'VendorName':"Schneider Electric", 
+         'ProductCode':"SAS TSXETY4103", 
+         'VendorUrl':"", 
+         'ProductName':"", 
+         'ModelName':"Model", 
+         'MajorMinorRevision':"1.0"
+        },
 }
 
 #print("Liste des signature : ")
