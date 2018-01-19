@@ -2,17 +2,77 @@ version: '2.0'
 
 
 services:
-  pymodbus:
-    container_name: modbus
-    build: ./modbus
+  1pymodbus:
+    container_name: 1modbus
+    build: 
+      context: ./modbus
     ports:
       - "502:502"
     volumes:
-      - /data/modbus/log:/var/log/modbus
+      - /data/modbus/1log:/var/log/modbus
+    command: ["python3", "/root/server.py", "0"]
+    ulimits:
+      nproc: 65535
+      nofile:
+        soft: 20000
+        hard: 40000
     networks:
-      - frontend
-      - backend
-    restart: always
+      - 1frontend
+    restart: on-failure
+
+  2pymodbus:
+    container_name: 2modbus
+    build: 
+      context: ./modbus
+    ports:
+      - "503:502"
+    volumes:
+      - /data/modbus/2log:/var/log/modbus
+    command: ["python3", "/root/server.py", "1"]
+    ulimits:
+      nproc: 65535
+      nofile:
+        soft: 20000
+        hard: 40000
+    networks:
+      - 2frontend
+    restart: on-failure
+
+  3pymodbus:
+    container_name: 3modbus
+    build: 
+      context: ./modbus
+    ports:
+      - "504:502"
+    volumes:
+      - /data/modbus/3log:/var/log/modbus
+    command: ["python3", "/root/server.py", "2"]
+    ulimits:
+      nproc: 65535
+      nofile:
+        soft: 20000
+        hard: 40000
+    networks:
+      - 3frontend
+    restart: on-failure
+
+  4pymodbus:
+    container_name: 4modbus
+    build: 
+      context: ./modbus
+    ports:
+      - "505:502"
+    volumes:
+      - /data/modbus/4log:/var/log/modbus
+    command: ["python3", "/root/server.py", "3"]
+    ulimits:
+      nproc: 65535
+      nofile:
+        soft: 20000
+        hard: 40000
+    networks:
+      - 4frontend
+    restart: on-failure
 
   elasticsearch:
     container_name: elasticsearch
@@ -24,8 +84,17 @@ services:
     environment:
       ES_JAVA_OPTS: "-Xmx2g -Xms2g"
     networks:
+      - 1frontend
+      - 2frontend
+      - 3frontend
+      - 4frontend
       - backend
-    restart: always
+    depends_on:
+      - 1pymodbus
+      - 2pymodbus
+      - 3pymodbus
+      - 4pymodbus
+    restart: on-failure
 
   logstash:
     container_name: logstash
@@ -38,10 +107,14 @@ services:
     environment:
       LS_JAVA_OPTS: "-Xmx2g -Xms2g"
     networks:
+      - 1frontend
+      - 2frontend
+      - 3frontend
+      - 4frontend
       - backend
     depends_on:
       - elasticsearch
-    restart: always
+    restart: on-failure
 
   kibana:
     container_name: kibana
@@ -50,11 +123,18 @@ services:
     volumes:
       - ./kibana/config/:/usr/share/kibana/config:ro
     networks:
+      - 1frontend
+      - 2frontend
+      - 3frontend
+      - 4frontend
       - backend
     depends_on:
       - elasticsearch
-    restart: always
+    restart: on-failure
 
 networks:
-  frontend:
+  1frontend:
+  2frontend:
+  3frontend:
+  4frontend:
   backend:
