@@ -11,6 +11,4 @@ RUN apt-get update && \
     pip3 install -U pymodbus
     #useradd -ms /bin/bash pymodbus
 COPY server.py /root
-#USER pymodbus
-CMD ["/root/server.py"]
-ENTRYPOINT ["python3"]
+ENTRYPOINT ["python3","/root/server.py","2"]
