@@ -26,6 +26,7 @@ from pymodbus.transaction import ModbusRtuFramer
 #---------------------------------------------------------------------------# 
 import logging
 import time
+import sys
 logging.basicConfig(format='%(asctime)s machinedetest  %(name)s %(levelname)s %(message)s', filename='/var/log/modbus/modbus.log')
 #logging.FileHandler('log_ser.log')
 log = logging.getLogger()
@@ -176,15 +177,14 @@ dico = {
 #print("Liste des signature : ")
 #-affichagesignature(dico)
 #i = demandeobligatoire("Quelle signature voulez vous utiliser ?","int")
-i = 0
 
 identity = ModbusDeviceIdentification()
-identity.VendorName  = dico[i]['VendorName']
-identity.ProductCode = dico[i]['ProductCode']
-identity.VendorUrl   = dico[i]['VendorUrl']
-identity.ProductName = dico[i]['ProductName']
-identity.ModelName   = dico[i]['ModelName']
-identity.MajorMinorRevision = dico[i]['MajorMinorRevision']
+identity.VendorName  = dico[sys.argv[1]]['VendorName']
+identity.ProductCode = dico[sys.argv[1]]['ProductCode']
+identity.VendorUrl   = dico[sys.argv[1]]['VendorUrl']
+identity.ProductName = dico[sys.argv[1]]['ProductName']
+identity.ModelName   = dico[sys.argv[1]]['ModelName']
+identity.MajorMinorRevision = dico[sys.argv[1]]['MajorMinorRevision']
 
 #---------------------------------------------------------------------------#
 # run the server you want
