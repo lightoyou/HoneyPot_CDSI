@@ -26,10 +26,10 @@ from pymodbus.transaction import ModbusRtuFramer
 #---------------------------------------------------------------------------# 
 import logging
 import time
-logging.basicConfig(format='%(asctime)s machinedetest  %(name)s %(levelname)s %(message)s', filename='/var/log/modbus/modbus.log')
+logging.basicConfig(format=time.asctime() + ' machinedetest  %(name)s %(levelname)s %(message)s', filename='/var/log/modbus/modbus.log')
 #logging.FileHandler('log_ser.log')
 log = logging.getLogger()
-log.setLevel(logging.DEBUG)
+log.setLevel(logging.INFO)
 
 
 def demandeobligatoire(question,typedem="text"):
@@ -190,9 +190,9 @@ identity.MajorMinorRevision = dico[i]['MajorMinorRevision']
 # run the server you want
 #---------------------------------------------------------------------------# 
 # Tcp:
-log.debug("[ %s ] TcpServer START", time.asctime())
+log.info("TcpServer START")
 StartTcpServer(context, identity=identity, address=("localhost", 502))
-log.debug("[ %s ] TcpServer STOP", time.asctime())
+log.info("[ %s ] TcpServer STOP", time.asctime())
 
 # Udp:
 #StartUdpServer(context, identity=identity, address=("localhost", 502))

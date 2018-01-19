@@ -123,8 +123,8 @@ class ModbusTransactionManager(object):
                 last_exception = None
                 self.client.connect()
                 packet = self.client.framer.buildPacket(request)
-                if _logger.isEnabledFor(logging.DEBUG):
-                    _logger.debug("send: " + " ".join([hex(byte2int(x)) for x in packet]))
+                #if _logger.isEnabledFor(logging.DEBUG):
+                _logger.info("send: " + " ".join([hex(byte2int(x)) for x in packet]))
                 self._send(packet)
                 # exception = False
                 result = self._recv(expected_response_length or 1024)
@@ -132,13 +132,13 @@ class ModbusTransactionManager(object):
                 if not result and self.retry_on_empty:
                     retries -= 1
                     continue
-                if _logger.isEnabledFor(logging.DEBUG):
-                    _logger.debug("recv: " + " ".join([hex(byte2int(x)) for x in result]))
+                #if _logger.isEnabledFor(logging.DEBUG):
+                _logger.info("recv: " + " ".join([hex(byte2int(x)) for x in result]))
                 self.client.framer.processIncomingPacket(result, self.addTransaction)
                 break
             except (socket.error, ModbusIOException, InvalidMessageRecievedException) as msg:
                 self.client.close()
-                _logger.debug("Transaction failed. (%s) " % msg)
+                _logger.info("Transaction failed. (%s) " % msg)
                 retries -= 1
                 last_exception = msg
         response = self.getTransaction(request.transaction_id)

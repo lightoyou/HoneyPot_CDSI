@@ -39,7 +39,7 @@ class ModbusBaseRequestHandler(socketserver.BaseRequestHandler):
     def setup(self):
         ''' Callback for when a client connects
         '''
-        _logger.debug("Client Connected [%s:%s]" % self.client_address)
+        _logger.info("[%s:%s] Client Connected " % self.client_address)
         self.running = True
         self.framer = self.server.framer(self.server.decoder)
         self.server.threads.append(self)
@@ -125,8 +125,8 @@ class ModbusSingleRequestHandler(ModbusBaseRequestHandler):
         if message.should_respond:
             #self.server.control.Counter.BusMessage += 1
             pdu = self.framer.buildPacket(message)
-            if _logger.isEnabledFor(logging.DEBUG):
-                _logger.debug('send: %s' % b2a_hex(pdu))
+            #if _logger.isEnabledFor(logging.DEBUG):
+            _logger.info('send: string %s' % b2a_hex(pdu))
             return self.request.send(pdu)
 
 
@@ -193,8 +193,9 @@ class ModbusConnectedRequestHandler(ModbusBaseRequestHandler):
         if message.should_respond:
             #self.server.control.Counter.BusMessage += 1
             pdu = self.framer.buildPacket(message)
-            if _logger.isEnabledFor(logging.DEBUG):
-                _logger.debug('send: %s' % b2a_hex(pdu))
+            #if _logger.isEnabledFor(logging.DEBUG):
+            _logger.info('send to [%s] : %s' % (self.client_address,b2a_hex(pdu)))
+            #_logger.info("[%s:%s] Client Connected " % self.client_address)
             return self.request.send(pdu)
 
 
@@ -243,8 +244,8 @@ class ModbusDisconnectedRequestHandler(ModbusBaseRequestHandler):
         if message.should_respond:
             #self.server.control.Counter.BusMessage += 1
             pdu = self.framer.buildPacket(message)
-            if _logger.isEnabledFor(logging.DEBUG):
-                _logger.debug('send: %s' % b2a_hex(pdu))
+            #if _logger.isEnabledFor(logging.DEBUG):
+            _logger.info('send: test2 %s' % b2a_hex(pdu) )
             return self.socket.sendto(pdu, self.client_address)
 
 
@@ -294,7 +295,7 @@ class ModbusTcpServer(socketserver.ThreadingTCPServer):
         :param request: The request to handle
         :param client: The address of the client
         '''
-        _logger.debug("Started thread to serve client at " + str(client))
+        _logger.info("Started thread to serve client at " + str(client))
         socketserver.ThreadingTCPServer.process_request(self, request, client)
 
     def shutdown(self):

@@ -41,7 +41,7 @@ class ModbusTcpProtocol(protocol.Protocol):
                  protocol __init__, the client connection made is essentially
                  our __init__ method.
         '''
-        _logger.debug("Client Connected [%s]" % self.transport.getHost())
+        _logger.info("[%s] Client Connected " % self.transport.getHost())
         self.framer = self.factory.framer(decoder=self.factory.decoder)
 
     def connectionLost(self, reason):
@@ -49,7 +49,8 @@ class ModbusTcpProtocol(protocol.Protocol):
 
         :param reason: The client's reason for disconnecting
         '''
-        _logger.debug("Client Disconnected: %s" % reason)
+		
+        _logger.info("%s Client Disconnected: %s " % (self.transport.getHost(),reason))
 
     def dataReceived(self, data):
         ''' Callback when we receive any data
