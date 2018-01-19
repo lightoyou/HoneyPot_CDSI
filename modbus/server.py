@@ -137,7 +137,7 @@ context = ModbusServerContext(slaves=store, single=True)
 #---------------------------------------------------------------------------# 
 
 dico = { 
-    0 : 
+    '0': 
         {'VendorName':"Schneider Electric", 
          'ProductCode':"A9MEM3255", 
          'VendorUrl':"", 
@@ -146,7 +146,7 @@ dico = {
          'MajorMinorRevision':"1.0"
         },
 
-    1 : 
+    '1': 
         {'VendorName':"Schneider Electric", 
          'ProductCode':"BMXNOE01005", 
          'VendorUrl':"", 
@@ -155,7 +155,7 @@ dico = {
          'MajorMinorRevision':"1.0"
         },
 
-    2 : 
+    '2': 
         {'VendorName':"Schneider Electric", 
          'ProductCode':"TM221CE40T", 
          'VendorUrl':"", 
@@ -164,7 +164,7 @@ dico = {
          'MajorMinorRevision':"1.0"
         },
 
-    3 : 
+    '3': 
         {'VendorName':"Schneider Electric", 
          'ProductCode':"SAS TSXETY4103", 
          'VendorUrl':"", 
