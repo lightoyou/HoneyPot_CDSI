@@ -31,7 +31,7 @@ import sys
 time.sleep(40)
 #logging.basicConfig(format='%(asctime)s machinedetest  %(name)s %(levelname)s %(message)s', filename='/var/log/modbus/modbus.log')
 log = logging.getLogger('python-logstash-logger')
-log.setLevel(logging.INFO)
+log.setLevel(logging.DEBUG)
 # test_logger.addHandler(logstash.LogstashHandler('127.0.0.1', 5959, version=1))
 log.addHandler(logstash.TCPLogstashHandler('logstash', 5959, version=1))
 #logging.FileHandler('log_ser.log')
