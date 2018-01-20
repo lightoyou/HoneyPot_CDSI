@@ -8,7 +8,8 @@ RUN apt-get update && \
     python3-pip && \
     apt-get autoremove && \
     apt-get clean && \
-    pip3 install -U pymodbus
+    pip3 install -U pymodbus && \
+    pip3 install -U python-logstash
     #useradd -ms /bin/bash pymodbus
 COPY server.py /root
-ENTRYPOINT ["python3","/root/server.py","2"]
+#CMD ["python3","/root/server.py","0"]

@@ -25,12 +25,17 @@ from pymodbus.transaction import ModbusRtuFramer
 # configure the service logging
 #---------------------------------------------------------------------------# 
 import logging
+import logstash 
 import time
 import sys
-logging.basicConfig(format='%(asctime)s machinedetest  %(name)s %(levelname)s %(message)s', filename='/var/log/modbus/modbus.log')
+#logging.basicConfig(format='%(asctime)s machinedetest  %(name)s %(levelname)s %(message)s', filename='/var/log/modbus/modbus.log')
+log = logging.getLogger('python-logstash-logger')
+log.setLevel(logging.INFO)
+# test_logger.addHandler(logstash.LogstashHandler('127.0.0.1', 5959, version=1))
+log.addHandler(logstash.TCPLogstashHandler('logstash', 5959, version=1))
 #logging.FileHandler('log_ser.log')
-log = logging.getLogger()
-log.setLevel(logging.DEBUG)
+#log = logging.getLogger()
+#log.setLevel(logging.DEBUG)
 
 
 def demandeobligatoire(question,typedem="text"):
@@ -190,9 +195,8 @@ identity.MajorMinorRevision = dico[sys.argv[1]]['MajorMinorRevision']
 # run the server you want
 #---------------------------------------------------------------------------# 
 # Tcp:
-log.debug("[ %s ] TcpServer START", time.asctime())
+print("=== [START] ====")
 StartTcpServer(context, identity=identity, address=("localhost", 502))
-log.debug("[ %s ] TcpServer STOP", time.asctime())
 
 # Udp:
 #StartUdpServer(context, identity=identity, address=("localhost", 502))
