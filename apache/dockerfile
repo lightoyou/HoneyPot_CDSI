@@ -1,0 +1,13 @@
+FROM debian:jessie
+
+RUN apt-get update && \
+    apt-get install -y apache2 && \
+    apt-get clean && \ 
+    rm /var/www/html/index.*
+
+ADD html/ /var/www/public-html/
+ADD apache.conf /etc/apache2/sites-enabled/000-default.conf
+
+ENTRYPOINT ["/usr/sbin/apache2ctl"]
+CMD ["-D", "FOREGROUND"]
+

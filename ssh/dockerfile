@@ -1,0 +1,21 @@
+FROM debian:jessie
+
+RUN apt-get update && \
+    apt-get install -y python2.7 \
+    python-twisted \
+    python-crypto \
+    python-zope.interface \
+    git && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+RUN useradd -d /kippo -s /bin/bash -m kippo -g sudo
+RUN git clone -q --depth 1 https://github.com/desaster/kippo.git /kippo-app
+RUN mv /kippo-app/kippo.cfg.dist /kippo-app/kippo.cfg
+RUN chown kippo /kippo-app -R
+
+USER kippo
+WORKDIR /kippo-app
+#CMD ["./start.sh"]
+CMD ["twistd", "--nodaemon", "-l", "log/kippo.log", "-y", "kippo.tac", "--pidfile=kippo.pid"]
+

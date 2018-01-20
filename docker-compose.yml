@@ -2,7 +2,6 @@ version: '2.0'
 
 
 services:
-
   elasticsearch:
     container_name: elasticsearch
     build:
@@ -13,9 +12,7 @@ services:
     environment:
       ES_JAVA_OPTS: "-Xmx2g -Xms2g"
     networks:
-      - 1frontend
       - backend
-    restart: on-failure
 
   logstash:
     container_name: logstash
@@ -24,14 +21,16 @@ services:
     volumes:
       - ./logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml:ro
       - ./logstash/pipeline:/usr/share/logstash/pipeline:ro
+      - /data:/data:ro
     environment:
       LS_JAVA_OPTS: "-Xmx2g -Xms2g"
     depends_on:
       - elasticsearch
     networks:
       - 1frontend
+      - 2frontend
+      - 3frontend
       - backend
-    restart: on-failure
 
   kibana:
     container_name: kibana
@@ -42,9 +41,7 @@ services:
     depends_on:
       - elasticsearch
     networks:
-      - 1frontend
       - backend
-    restart: on-failure
 
   1pymodbus:
     container_name: 1modbus
@@ -53,7 +50,7 @@ services:
     ports:
       - "502:502"
     environment:
-             - PYTHONUNBUFFERED=1
+      - PYTHONUNBUFFERED=1
     command: ["python3", "/root/server.py", "0"]
     depends_on:
       - logstash
@@ -61,10 +58,45 @@ services:
       - kibana
     networks:
       - 1frontend
-    restart: on-failure
 
+  apache:
+    container_name: apache 
+    build:
+      context: ./apache
+    ports:
+      -  "80:80"
+    environment:
+      APACHE_RUN_USER: "www-data"
+      APACHE_RUN_GROUP: "www-data"
+      APACHE_LOG_DIR: "/var/log/apache2"
+      APACHE_RUN_DIR: "/var/run/apache2"
+    volumes:
+      - /data/apache:/var/log/apache2:rw
+    depends_on:
+      - logstash
+      - elasticsearch
+      - kibana
+    networks:
+      - 2frontend
+
+  ssh_kipo:
+    container_name: ssh_kipo
+    build:
+      context: ./ssh
+    ports:
+      - "22:2222"
+    depends_on:
+      - logstash
+      - elasticsearch
+      - kibana
+    volumes:
+      - /data/ssh_kippo:/kippo-app/log/
+    networks:
+      - 3frontend
 
 networks:
   1frontend:
+  2frontend:
+  3frontend:
   backend:
 
