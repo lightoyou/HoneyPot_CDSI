@@ -28,6 +28,7 @@ import logging
 import logstash 
 import time
 import sys
+time.sleep(40)
 #logging.basicConfig(format='%(asctime)s machinedetest  %(name)s %(levelname)s %(message)s', filename='/var/log/modbus/modbus.log')
 log = logging.getLogger('python-logstash-logger')
 log.setLevel(logging.INFO)
@@ -196,7 +197,8 @@ identity.MajorMinorRevision = dico[sys.argv[1]]['MajorMinorRevision']
 #---------------------------------------------------------------------------# 
 # Tcp:
 print("=== [START] ====")
-StartTcpServer(context, identity=identity, address=("localhost", 502))
+log.info("Server start")
+StartTcpServer(context, identity=identity, address=("0.0.0.0", 502))
 
 # Udp:
 #StartUdpServer(context, identity=identity, address=("localhost", 502))
