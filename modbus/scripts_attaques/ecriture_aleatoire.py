@@ -8,7 +8,7 @@ Version : 1
 
 __auteur__ = 'jd'
 
-import collections, random, sys
+import collections, random, subprocess, sys
 from pymodbus.client.sync import ModbusTcpClient
 
 class ModbusException(Exception):
@@ -30,6 +30,7 @@ class ModbusException(Exception):
 def status(msg):
 	sys.stderr.write(msg[:-1][:39].ljust(39,' ')+msg[-1:])
 
+# fonction qui va établir la connexion
 def connexion():
 	try:
 		# définition des variables global
@@ -50,7 +51,7 @@ def connexion():
 		print('ERREUR : Pas de cible\n\n')
 		exit()
 
-	print('Connexion au PLC %s... ' % ip, end='')
+	print('Connexion au PLC %s... ' % ip, end = '')
 
 	# connexion au serveur Modbus
 	client = ModbusTcpClient(ip, port)
@@ -66,7 +67,7 @@ def ecriture_aleatoire():
 	adresse = 1
 	for adresse in range(adr_debut, adr_fin):
 		gen_aleatoire = random.randint(1337, 9999)
-		ecriture_registre = client.write_registers(adresse, gen_aleatoire, unit=unitid)
+		ecriture_registre = client.write_registers(adresse, gen_aleatoire, unit = unitid)
 		if ecriture_registre.function_code == 16:
 			resultats.append(adresse)
 
@@ -81,12 +82,12 @@ def lecture_registres():
 	adresse = 1
 	registres_teste = adr_fin - adr_debut + 1
 	if registres_teste == 1:
-		ecriture_registre = client.read_holding_registers(adr_debut, 1, unit=unitid)
+		ecriture_registre = client.read_holding_registers(adr_debut, 1, unit = unitid)
 		if ecriture_registre.function_code == 3:
 			resultats[adresse] = ecriture_registre.registres[0]
 	else:
 		for adresse in range(adr_debut, adr_fin):
-			ecriture_registre = client.read_holding_registers(adresse, 1, unit=unitid)
+			ecriture_registre = client.read_holding_registers(adresse, 1, unit = unitid)
 			if ecriture_registre.function_code == 3:
 				resultats[adresse] = ecriture_registre.registers[0]
 
@@ -98,10 +99,14 @@ def lecture_registres():
 	for adresse, valeur in resultats_ranges.items():
 		print('\t'+c_vert+'[*]'+c_normal+'  Valeur du registre {0} : {1}'.format(adresse,valeur))
 
-if __name__=='__main__':
+if __name__ == '__main__':
 	try:
+		# nettoyage de la console
+		subprocess.call('clear', shell = True)
+
 		connexion()
 		ecriture_aleatoire()
 		lecture_registres()
+
 	except KeyboardInterrupt:
 		status('Vous avez appuyé sur Ctrl-C\n')
