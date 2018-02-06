@@ -36,16 +36,19 @@ services:
     container_name: kibana
     build:
       context: kibana/
+    #ports:
+    #  - "5601:5601"
     volumes:
       - ./kibana/config/:/usr/share/kibana/config:ro
     depends_on:
       - elasticsearch
     networks:
       - backend
+      #- 4frontend
 
   1pymodbus:
     container_name: 1modbus
-    build: 
+    build:
       context: ./modbus
     ports:
       - "502:502"
@@ -60,7 +63,7 @@ services:
       - 1frontend
 
   apache:
-    container_name: apache 
+    container_name: apache
     build:
       context: ./apache
     ports:
@@ -98,5 +101,5 @@ networks:
   1frontend:
   2frontend:
   3frontend:
+  #4frontend:
   backend:
-
