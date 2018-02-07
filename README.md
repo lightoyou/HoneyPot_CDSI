@@ -4,11 +4,12 @@
 Ce projet est un HoneyPot dédié aux Industrial Control Système- ICS.
 L'Objectif est de fournir un moyen de collecter des données permettant de comprendre les motivations, les méthodes utilisé par des adversaires essayant d'attaquer ce type de système industriel et particulièrement le protocole ModBus.
 
+# Vidéo Démonstration
 [![IMAGE ALT TEXT](http://img.youtube.com/vi/JF7ICV8LGU8/0.jpg)](http://www.youtube.com/watch?v=JF7ICV8LGU8 "Demonstration")
 
 
 # Infrastructure
-![schéma](/doc/img/archi.png)
+![schéma](/doc/img/_ARCHI.png)
 
 ## Explications
 Le projet se base sur la Stack ELK.
