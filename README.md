@@ -37,8 +37,10 @@ Kibana est une interface web riche qui permet de présenter sous forme de dashbo
 Les scripts d'attaques sont dans le dossier modbus.
 
 # Installation facile avec Docker
+L'installation de Docker (Exemple en Community Edition)
 ## Depuis les sources
 1. Installer Docker 'documentation installation Docker community edition'
-2. Cloner ce répository via
-```git clone
-https://github.com/lightoyou/HoneyPot_CDSI.git```
+2. Cloner ce répository via https://github.com/lightoyou/HoneyPot_CDSI.git
+3. Update des données via (git pull)
+4. Création des images "docker-compose build" (take some cofee)
+5. Création des images "docker-compose up"
